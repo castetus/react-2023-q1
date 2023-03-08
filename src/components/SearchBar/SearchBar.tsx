@@ -7,19 +7,30 @@ class SearchBar extends React.Component {
     searchQuery: '',
   };
 
+  test(): unknown {
+    console.log(this.state);
+    return this.state;
+  }
+
   componentDidMount(): void {
-    try {
-      const savedQuery = localStorage.getItem(LSKey) || '';
+    const savedQuery = localStorage.getItem(LSKey) || '';
+    if (savedQuery) {
       this.setQuery(savedQuery);
-    } catch (error) {
-      console.log(error);
     }
   }
   componentWillUnmount(): void {
+    // const test = this.test.bind(this);
+    // console.log('unmount');
+    alert(JSON.stringify(this.state));
+    // setTimeout(() => {
+    // console.log('unmount', this.test());
+    // alert(this.state.searchQuery);
     localStorage.setItem(LSKey, this.state.searchQuery);
+    // }, 0);
   }
   setQuery(val: string) {
     this.setState({ searchQuery: val });
+    console.log(this.state);
   }
   render() {
     return (
