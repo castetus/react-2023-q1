@@ -1,5 +1,6 @@
 import React from 'react';
 import { LSKey } from '@/constants';
+import Loupe from '@/assets/icons/loupe.svg';
 import './style.css';
 
 class SearchBar extends React.Component {
@@ -28,7 +29,9 @@ class SearchBar extends React.Component {
           type="text"
           value={this.state.searchQuery}
         />
-        <span className="search-bar-icon" />
+        <div className="search-bar-icon">
+          <img src={Loupe} />
+        </div>
       </div>
     );
   }
