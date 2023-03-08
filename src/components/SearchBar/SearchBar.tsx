@@ -7,11 +7,6 @@ class SearchBar extends React.Component {
     searchQuery: '',
   };
 
-  test(): unknown {
-    console.log(this.state);
-    return this.state;
-  }
-
   componentDidMount(): void {
     const savedQuery = localStorage.getItem(LSKey) || '';
     if (savedQuery) {
@@ -19,14 +14,7 @@ class SearchBar extends React.Component {
     }
   }
   componentWillUnmount(): void {
-    // const test = this.test.bind(this);
-    // console.log('unmount');
-    alert(JSON.stringify(this.state));
-    // setTimeout(() => {
-    // console.log('unmount', this.test());
-    // alert(this.state.searchQuery);
     localStorage.setItem(LSKey, this.state.searchQuery);
-    // }, 0);
   }
   setQuery(val: string) {
     this.setState({ searchQuery: val });
