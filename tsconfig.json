@@ -12,8 +12,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "baseUrl": "./src",
-    "resolveJsonModule": true
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["./src/**/*", "styled.d.ts"]
+  "include": ["./src/**/*", "src/**/*.tsx", "styled.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

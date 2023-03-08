@@ -1,5 +1,5 @@
 import React from 'react';
-import { LSKey } from '../../constants';
+import { LSKey } from '@/constants';
 import './style.css';
 
 class SearchBar extends React.Component {

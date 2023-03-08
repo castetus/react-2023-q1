@@ -5,7 +5,8 @@
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:import/typescript"
   ],
   "env": {
     "browser": true,
@@ -46,6 +47,9 @@
 		"react": {
 			"pragma": "React",
 			"version": "detect"
-		}
+		},
+    "import/parsers": { // add this definition
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
 	}
 }
