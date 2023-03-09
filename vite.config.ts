@@ -10,4 +10,3 @@ export default defineConfig({
   },
   plugins: [react(), eslint()],
 });
-console.log(path.resolve(__dirname, './src'));
