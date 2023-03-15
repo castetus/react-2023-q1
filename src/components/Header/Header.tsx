@@ -1,10 +1,15 @@
+import { withRouter } from '@/withRouter';
 import React from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Heading from '@/components/Heading/Heading';
 
-const Layout = () => {
-  return (
-    <>
+const HeadingWithRouterProps = withRouter(Heading);
+
+class Header extends React.Component {
+  render() {
+    return (
       <header className="header">
+        <HeadingWithRouterProps />
         <nav>
           <ul className="main-menu">
             <li className="main-menu-item">
@@ -16,9 +21,8 @@ const Layout = () => {
           </ul>
         </nav>
       </header>
-      <Outlet />
-    </>
-  );
-};
+    );
+  }
+}
 
-export default Layout;
+export default Header;
