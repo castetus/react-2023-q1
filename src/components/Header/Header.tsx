@@ -2,6 +2,7 @@ import { withRouter } from '@/withRouter';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Heading from '@/components/Heading/Heading';
+import './style.css';
 
 const HeadingWithRouterProps = withRouter(Heading);
 
