@@ -19,6 +19,9 @@ class Header extends React.Component {
             <li className="main-menu-item">
               <NavLink to="/about">About</NavLink>
             </li>
+            <li className="main-menu-item">
+              <NavLink to="/form">Form</NavLink>
+            </li>
           </ul>
         </nav>
       </header>
