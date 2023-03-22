@@ -1,18 +1,21 @@
 import React from 'react';
+import { FormState } from '@/types';
+import { validate } from '@/helpers/validate';
 
 class Form extends React.Component {
-  state = {
+  state: FormState = {
     name: '',
     birthdate: '',
     country: '',
     confirm: false,
     sex: '',
     file: null,
+    errors: {},
   };
   submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log(this.state);
+    const errors = validate(this.state);
+    this.setState({ errors });
   };
   changeHandle = (
     e: React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>
