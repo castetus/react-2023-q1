@@ -1,33 +1,33 @@
 import { FormState } from '@/types';
 
 export const validate = (fields: FormState) => {
-  const { name, birthdate, country, confirm, sex, file } = fields;
+  const { name, birthdate, country, confirm, sex, profilePicture } = fields;
   const errors: {
-    [key: string]: boolean;
+    [key: string]: string;
   } = {};
 
   if (!name.length) {
-    errors.name = true;
+    errors.name = 'Name is required';
   }
 
   if (!birthdate.length) {
-    errors.birthdate = true;
+    errors.birthdate = 'Birthday is required';
   }
 
-  if (!country.length) {
-    errors.country = true;
+  if (!country) {
+    errors.country = 'Country is required';
   }
 
   if (!confirm) {
-    errors.country = true;
+    errors.confirm = 'You must consent to your personal data';
   }
 
   if (!sex) {
-    errors.sex = true;
+    errors.sex = 'Gender is required';
   }
 
-  if (!file) {
-    errors.file = true;
+  if (!profilePicture) {
+    errors.profilePicture = 'Please select a profile picture to upload';
   }
 
   return errors;

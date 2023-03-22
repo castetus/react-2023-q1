@@ -110,3 +110,7 @@ button:focus-visible {
 .form label {
   margin-bottom: 20px;
 }
+.error {
+  color: red;
+  display: block;
+}

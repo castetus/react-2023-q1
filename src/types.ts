@@ -4,8 +4,8 @@ export interface FormState {
   country: string;
   confirm: boolean;
   sex: string;
-  file: null;
+  profilePicture: File | null;
   errors: {
-    [key: string]: boolean;
+    [key: string]: string;
   };
 }
