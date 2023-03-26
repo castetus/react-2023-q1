@@ -1,2 +1,2 @@
 export const LSKey = 'searchQuery';
-export const TIMEOUT = 500;
+export const TIMEOUT = 5000;

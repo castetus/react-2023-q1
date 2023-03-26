@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
 }
 .form label {
   margin-bottom: 20px;

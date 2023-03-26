@@ -24,6 +24,17 @@ class Form extends React.Component<FormProps> {
       return;
     }
     this.props.onSubmit(this.state);
+    const form = e.target as HTMLFormElement;
+    form.reset();
+    this.setState({
+      name: '',
+      birthdate: '',
+      country: '',
+      confirm: false,
+      sex: '',
+      profilePicture: null,
+      errors: {},
+    });
   };
   changeHandle = (
     e: React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>
