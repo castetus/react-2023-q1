@@ -90,7 +90,13 @@ class Form extends React.Component {
             {errors.sex && <span className="error">{errors.sex}</span>}
           </label>
           <label htmlFor="">
-            <input type="file" name="profilePicture" id="" onChange={this.changeHandle} />
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              name="profilePicture"
+              id=""
+              onChange={this.changeHandle}
+            />
             {errors.profilePicture && <span className="error">{errors.profilePicture}</span>}
           </label>
           <input type="submit" value="Send form" />
