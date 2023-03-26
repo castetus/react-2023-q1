@@ -98,5 +98,11 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  padding: 20px 0;
+  padding: 20px;
+}
+
+.notice-wrapper {
+  position: relative;
+  bottom: 30px;
+  color: green;
 }
