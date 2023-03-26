@@ -1,8 +1,12 @@
 import React from 'react';
-import { FormState } from '@/types';
+import { FormState, FormProps } from '@/types';
 import { validate } from '@/helpers/validate';
+import './style.css';
 
-class Form extends React.Component {
+class Form extends React.Component<FormProps> {
+  constructor(props: FormProps) {
+    super(props);
+  }
   state: FormState = {
     name: '',
     birthdate: '',
@@ -16,10 +20,10 @@ class Form extends React.Component {
     e.preventDefault();
     const errors = validate(this.state);
     this.setState({ errors });
-    console.log(errors);
     if (Object.keys(errors).length) {
       return;
     }
+    this.props.onSubmit(this.state);
   };
   changeHandle = (
     e: React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>
@@ -31,8 +35,18 @@ class Form extends React.Component {
       [name]: value,
     });
   };
+  handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event: ProgressEvent<FileReader>) => {
+        this.setState({ profilePicture: event.target?.result?.toString() });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   render() {
-    const { name, birthdate, country, confirm, sex, profilePicture, errors } = this.state;
+    const { name, birthdate, country, errors } = this.state;
     return (
       <div>
         <h1>Form</h1>
@@ -61,7 +75,7 @@ class Form extends React.Component {
             <input
               type="checkbox"
               name="confirm"
-              // checked={this.state.confirm}
+              checked={this.state.confirm}
               onChange={(e) => this.setState({ confirm: e.target.checked })}
             />
             {errors.confirm && <span className="error">{errors.confirm}</span>}
@@ -95,7 +109,7 @@ class Form extends React.Component {
               accept="image/png, image/jpeg"
               name="profilePicture"
               id=""
-              onChange={this.changeHandle}
+              onChange={this.handleFileUpload}
             />
             {errors.profilePicture && <span className="error">{errors.profilePicture}</span>}
           </label>

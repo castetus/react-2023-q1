@@ -100,17 +100,3 @@ button:focus-visible {
   grid-gap: 20px;
   padding: 20px 0;
 }
-
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: 0 auto;
-}
-.form label {
-  margin-bottom: 20px;
-}
-.error {
-  color: red;
-  display: block;
-}

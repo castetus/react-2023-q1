@@ -4,8 +4,11 @@ export interface FormState {
   country: string;
   confirm: boolean;
   sex: string;
-  profilePicture: File | null;
+  profilePicture: string | null;
   errors: {
     [key: string]: string;
   };
+}
+export interface FormProps {
+  onSubmit: (formState: FormState) => void;
 }

@@ -9,9 +9,6 @@ export const withRouter = <Props extends WithRouterProps>(
   Component: React.ComponentType<Props>
 ) => {
   return (props: Omit<Props, keyof WithRouterProps>) => {
-    // const location = useLocation();
-    // console.log(location);
-
     return <Component {...(props as Props)} location={useLocation()} />;
   };
 };
